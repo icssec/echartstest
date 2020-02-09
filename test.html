@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script type='text/javascript' src="basic/js/jquery-1.11.1.min.js"></script>-->
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/echarts/echarts.min.js"></script>
+    <script src="js/echarts/china.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            function randomData() {
+                return Math.round(Math.random()*1000);
+            }
+            var testOption = {
+                title: {
+                    text: '地图标题',
+                    subtext: '介绍',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x:'left',
+                    data:['xieyi']
+                },
+                visualMap: {
+                    min: 0,
+                    max: 1000,
+                    left: 'left',
+                    top: 'bottom',
+                    text: ['高','低'],           // 文本，默认为数值文本
+                    calculable: true
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    left: 'right',
+                    top: 'center',
+                    feature: {
+                        dataView: {readOnly: false},
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+                series: [
+                    {
+                        name: 'xieyi',
+                        type: 'map',
+                        mapType: 'china',
+                        label: {
+                            normal: {
+                                show: true
+                            },
+                            emphasis: {
+                                show: true
+                            }
+                        },
+                        data:[
+    {name: "辽宁", value: 986},
+    {name: "山东", value: 368},
+    {name: "河北", value: 284},
+    {name: "河南", value: 220},
+    {name: "黑龙江", value: 180},
+    {name: "吉林", value: 151},
+    {name: "广东", value: 150},
+    {name: "山西", value: 116},
+    {name: "江苏", value: 103},
+    {name: "浙江", value: 76},
+    {name: "上海", value: 75},
+    {name: "内蒙古", value: 75},
+    {name: "云南", value: 52},
+    {name: "安徽", value: 34},
+    {name: "海南", value: 25},
+    {name: "四川", value: 21},
+    {name: "福建", value: 20},
+    {name: "江西", value: 20},
+    {name: "广西", value: 19},
+    {name: "北京", value: 16},
+    {name: "贵州", value: 9},
+    {name: "重庆", value: 8},
+    {name: "湖南", value: 6},
+    {name: "青海", value: 5},
+    {name: "新疆", value: 5},
+    {name: "天津", value: 4},
+    {name: "甘肃", value: 2},
+    {name: "湖北", value: 1},
+    {name: "西藏", value: 1}
+]
+                    }
+
+                ]
+            };
+            var beatTimes = echarts.init(document.getElementById('beatTimes'));
+            beatTimes.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'china'
+                }]
+            });
+            beatTimes.setOption(testOption);
+        });
+    </script>
+</head>
+<body>
+  <div id="beatTimes" style="width: 800px;height:450px;text-align:center;margin:0 auto" ></div>
+</body>
+</html>
